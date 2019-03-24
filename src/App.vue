@@ -1,28 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div
+      class="container"
+      :class="{ 'right-panel-active': showSignUpOverlay }"
+    >
+      <div class="panel form-container sign-up-container">
+        <sign-up-form />
+      </div>
+
+      <div class="panel form-container sign-in-container">
+        <sign-in-form />
+      </div>
+
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="panel overlay-panel overlay-left">
+            <sign-in-overlay @click="toggleOverlay" />
+          </div>
+
+          <div class="panel overlay-panel overlay-right">
+            <sign-up-overlay @click="toggleOverlay" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SignInForm from './components/SignInForm'
+import SignInOverlay from './components/SignInOverlay'
+import SignUpForm from './components/SignUpForm'
+import SignUpOverlay from './components/SignUpOverlay'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    SignInForm,
+    SignInOverlay,
+    SignUpForm,
+    SignUpOverlay
+  },
+  data: () => ({
+    showSignUpOverlay: true
+  }),
+  methods: {
+    toggleOverlay () {
+      this.showSignUpOverlay = !this.showSignUpOverlay
+    }
   }
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
