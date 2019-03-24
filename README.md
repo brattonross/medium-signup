@@ -1,6 +1,6 @@
 # medium-signup
 
-![Example Image](/assets/example.png?raw=true)
+![Example Image](https://github.com/brattonross/medium-signup/src/assets/example.png?raw=true)
 
 ## Project setup
 ```
