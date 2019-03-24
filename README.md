@@ -1,5 +1,7 @@
 # medium-signup
 
+![Example Image](/assets/example.png?raw=true)
+
 ## Project setup
 ```
 yarn install
